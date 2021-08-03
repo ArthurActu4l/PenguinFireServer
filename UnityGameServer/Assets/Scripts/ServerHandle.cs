@@ -44,4 +44,12 @@ public class ServerHandle
 
         Server.clients[_fromClient].player.SendRotationAndPosition(gunPosition, gunRotation, gunId, boneRotation);
     }
+
+    public static void GetGunSounds(int _fromClient, Packet _packet)
+    {
+        int gunId = _packet.ReadInt();
+        int soundEffectId = _packet.ReadInt();
+
+        Server.clients[_fromClient].player.SendGunSounds(gunId, soundEffectId);
+    }
 }

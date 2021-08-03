@@ -153,5 +153,19 @@ public class ServerSend
             SendUDPDataToAll(_player.id, _packet);
         }
     }
+    
+    public static void SendGunSounds(Player _player, int gunId, int soundEffectId)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.gunSounds))
+        {
+            _packet.Write(_player.id);
+            _packet.Write(gunId);
+            _packet.Write(soundEffectId);
+
+            SendUDPDataToAll(_player.id, _packet);
+        }
+    }
+
+    
     #endregion
 }

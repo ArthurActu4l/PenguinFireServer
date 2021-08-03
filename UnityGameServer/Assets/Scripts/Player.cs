@@ -43,4 +43,9 @@ public class Player : MonoBehaviour
     {
         ServerSend.SendGunRotationAndPosition(this, position, rotation, gunId, boneRotation);
     }
+
+    public void SendGunSounds(int gunId, int soundEffectId)
+    {
+        ServerSend.SendGunSounds(this, gunId, soundEffectId);
+    }
 }
