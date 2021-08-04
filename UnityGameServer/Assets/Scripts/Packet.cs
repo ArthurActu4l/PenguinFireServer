@@ -14,7 +14,8 @@ public enum ServerPackets
     playerRespawned,
     weapons,
     gunPositionAndRotation,
-    gunSounds
+    gunSounds,
+    gunBullets
 }
 
 /// <summary>Sent from client to server.</summary>
@@ -24,7 +25,8 @@ public enum ClientPackets
     playerMovement,
     weapons,
     gunPositionAndRotation,
-    gunSounds
+    gunSounds,
+    gunBullets
 }
 
 public class Packet : IDisposable

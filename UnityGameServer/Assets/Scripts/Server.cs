@@ -131,7 +131,8 @@ public class Server
             { (int)ClientPackets.playerMovement, ServerHandle.PlayerMovement },
             { (int)ClientPackets.weapons, ServerHandle.SelectWeapon },
             { (int)ClientPackets.gunPositionAndRotation, ServerHandle.GetGunPositionAndRotation },
-            { (int)ClientPackets.gunSounds, ServerHandle.GetGunSounds }
+            { (int)ClientPackets.gunSounds, ServerHandle.GetGunSounds },
+            { (int)ClientPackets.gunBullets, ServerHandle.GetBulletHitPoint }
         };
         Debug.Log("Initialized packets.");
     }

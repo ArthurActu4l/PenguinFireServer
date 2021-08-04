@@ -124,7 +124,7 @@ public class ServerSend
             _packet.Write(_player.transform.rotation);
             _packet.Write(_player.cameraRotation);
 
-            SendUDPDataToAll(_player.id, _packet);
+            SendTCPDataToAll(_player.id, _packet);
         }
     }
     
@@ -135,7 +135,7 @@ public class ServerSend
             _packet.Write(_player.id);
             _packet.Write(selectedWeapon);
 
-            SendUDPDataToAll(_player.id, _packet);
+            SendTCPDataToAll(_player.id, _packet);
         }
     }
     
@@ -150,7 +150,7 @@ public class ServerSend
             _packet.Write(rotation);
             _packet.Write(boneRotation);
 
-            SendUDPDataToAll(_player.id, _packet);
+            SendTCPDataToAll(_player.id, _packet);
         }
     }
     
@@ -162,10 +162,23 @@ public class ServerSend
             _packet.Write(gunId);
             _packet.Write(soundEffectId);
 
-            SendUDPDataToAll(_player.id, _packet);
+            SendTCPDataToAll(_player.id, _packet);
         }
     }
+    
+    public static void SendBulletHitPoint(Player _player, int gunId, Vector3 bulletHitPoint, float bulletForce, Vector3 decalNormal)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.gunBullets))
+        {
+            _packet.Write(_player.id);
+            _packet.Write(gunId);
+            _packet.Write(bulletHitPoint);
+            _packet.Write(bulletForce);
+            _packet.Write(decalNormal);
 
+            SendTCPDataToAll(_player.id, _packet);
+        }
+    }
     
     #endregion
 }

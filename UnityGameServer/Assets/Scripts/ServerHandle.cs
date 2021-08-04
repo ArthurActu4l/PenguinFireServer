@@ -52,4 +52,15 @@ public class ServerHandle
 
         Server.clients[_fromClient].player.SendGunSounds(gunId, soundEffectId);
     }
+
+
+    public static void GetBulletHitPoint(int _fromClient, Packet _packet)
+    {
+        int gunId = _packet.ReadInt();
+        Vector3 bulletHitPoint = _packet.ReadVector3();
+        float bulletForce = _packet.ReadFloat();
+        Vector3 decalNormal = _packet.ReadVector3();
+
+        Server.clients[_fromClient].player.SendBulletHitPoint(gunId, bulletHitPoint, bulletForce, decalNormal);
+    }
 }

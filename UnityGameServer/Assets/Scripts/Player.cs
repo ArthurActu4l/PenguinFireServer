@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -47,5 +46,10 @@ public class Player : MonoBehaviour
     public void SendGunSounds(int gunId, int soundEffectId)
     {
         ServerSend.SendGunSounds(this, gunId, soundEffectId);
+    }
+
+    public void SendBulletHitPoint(int gunId, Vector3 bulletHitPoint, float bulletForce, Vector3 decalNormal)
+    {
+        ServerSend.SendBulletHitPoint(this, gunId, bulletHitPoint, bulletForce, decalNormal);
     }
 }
